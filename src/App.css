@@ -1,0 +1,66 @@
+.App{
+    height: 98vh;
+    margin: 0 10px;
+}
+.addItemForm{
+    margin: 50px 0;
+}
+.addItemForm > *{
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+}
+.addItemTextBox {
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.addItemBtn{
+    width: 100px;
+    border: 1px solid #24dde0;
+    color: #24dde0;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.addItemBtn:hover{
+    background-color: #24dde0;
+    color: white;
+}
+.todotitle{
+    color: #24dde0;
+}
+.toDoLists{
+    padding: 0;
+}
+.listItem{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.listItem_checkbox{
+    height: 20px;
+    width: 20px;
+}
+.listItem_text{
+    margin-left: 10px;
+    color: white;
+
+}
+.listItem_delete{
+    margin-left: 10px;
+    height: 20px;
+    color: #dbaf1d;
+    background-color: transparent;
+    border: 1px solid #dbaf1d;
+    padding: 5px 15px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.listItem_delete:hover{
+    background-color: #dbaf1d;
+    color: white;
+}
