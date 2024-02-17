@@ -1,5 +1,4 @@
 .App{
-    height: 98vh;
     margin: 0 10px;
 }
 .addItemForm{
@@ -62,5 +61,9 @@
 }
 .listItem_delete:hover{
     background-color: #dbaf1d;
+    color: white;
+}
+
+.empty{
     color: white;
 }
