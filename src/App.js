@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import ToDoList from './ToDoList';
+import NewItemForm from './NewItemForm';
 
 const App = () => {
 
   
 
-  const [newItem, setNewItem] = useState('');
   const [toDoList, setToDoList] = useState(()=>{
     let existingValue = JSON.parse(localStorage.getItem('toDoList'))
     if(existingValue){
@@ -17,16 +18,12 @@ const App = () => {
   });
 
   useEffect(()=>{
+    console.log(toDoList)
     localStorage.setItem('toDoList',JSON.stringify(toDoList))
 
   },[toDoList])
-  function submitHandler(event){
-    event.preventDefault()
-    let newObj = {
-      key:Math.random(),
-      name:newItem,
-      completed:false
-    }
+
+  function addToDoItem(newObj){
     setToDoList((currValue)=>{
       return [
         ...currValue,
@@ -62,30 +59,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <form className='addItemForm' onSubmit={(e) => submitHandler(e)}>
-      <input type="text" name="" id="" placeholder='Add New Item' className='addItemTextBox' onChange={(e)=> setNewItem(e.target.value)}/>
-      <button className="addItemBtn" type='submit'>Add To List</button>
-
-      </form>
+      <NewItemForm addToDoItem={addToDoItem}/>
       <div className='todolistContainer'>
         <h2 className="todotitle">To Do List</h2>
+        <ToDoList toDoList={toDoList} toggleChecked={toggleChecked} deleteItem={deleteItem}></ToDoList>
         
-        
-          <ul className="toDoLists">
-            {toDoList.length > 0 ? 
-              toDoList.map((item,index) =>(
-                <li className='listItem' key={item.key}>
-                <input type="checkbox" name="" id="" className='listItem_checkbox' checked={item.completed} onChange={(e) =>{toggleChecked(e.target.checked,item.key)}}/>
-                <span className='listItem_text'>{item.name}</span>
-                <button className='listItem_delete' onClick={()=>deleteItem(item.key)}>Delete</button>
-              </li>
-              ))
-            :(
-              <h3 className="empty">No items added</h3>
-            )}
-            
-           
-          </ul>
+         
         
       </div>
     </div>
